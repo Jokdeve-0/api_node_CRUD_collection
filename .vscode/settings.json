@@ -1,0 +1,22 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "cSpell.language": "en,fr",
+  "cSpell.words": [
+    "addictocode",
+    "Addictocode",
+    "apikey",
+    "APIKEY",
+    "EREQUEST",
+    "Jokdeve",
+    "recordset",
+    "recordsets"
+  ]
+}

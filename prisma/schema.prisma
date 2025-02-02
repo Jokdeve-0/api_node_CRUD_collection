@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model DevLogs {
+  Id           Int       @id(map: "PK__DevLogs__3214EC0775BB07AB") @default(autoincrement())
+  Level        String    @db.NVarChar(50)
+  Message      String    @db.NVarChar(Max)
+  DateCreation DateTime? @default(now(), map: "DF__DevLogs__DateCre__5DCAEF64") @db.DateTime
+}
+
+model User {
+  Id                Int       @id(map: "PK__User__3214EC072F72726B") @default(autoincrement())
+  Email             String    @unique(map: "Email_unique") @db.NVarChar(255)
+  PasswordHash      String    @db.NVarChar(255)
+  FirstName         String?   @db.NVarChar(100)
+  LastName          String?   @db.NVarChar(100)
+  PhoneNumber       String?   @db.NVarChar(15)
+  DateOfBirth       DateTime? @db.Date
+  ProfilePictureUrl String?   @db.NVarChar(2083)
+  Role              String    @default("User", map: "DF__User__Role__4AB81AF0") @db.NVarChar(50)
+  LastLoginAt       DateTime?
+  IsActive          Boolean   @default(true, map: "DF__User__IsActive__4BAC3F29")
+  IsEmailVerified   Boolean   @default(false, map: "DF__User__IsEmailVer__4CA06362")
+  LockedOutUntil    DateTime?
+  CreatedAt         DateTime  @default(now(), map: "DF__User__CreatedAt__4D94879B")
+  UpdatedAt         DateTime  @default(now(), map: "DF__User__UpdatedAt__4E88ABD4")
+}
