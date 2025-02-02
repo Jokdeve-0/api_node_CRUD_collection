@@ -1,0 +1,1118 @@
+{
+	"info": {
+		"_postman_id": "d9d7c1a1-b6f4-410d-bf10-3e972906dc38",
+		"name": "API Addictocode",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18023588"
+	},
+	"item": [
+		{
+			"name": "Connexion",
+			"item": [
+				{
+					"name": "Version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}",
+							"host": [
+								"{{api-url}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Online",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-url}}",
+									"host": [
+										"{{api-url}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "148"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"94-BzTWauItZhmgzeS4SJia2rTjkoQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 22:56:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"api\": \"Addictocode\",\n    \"version\": \"1.0.0\",\n    \"informations\": {\n        \"message\": \"Welcome to Addictocode API\",\n        \"status\": \"online\",\n        \"support\": \"support@addictocode.fr\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\":\"support@addictocode.fr\",\r\n    \"password\": \"Addictocode@91\",\r\n    \"passwordConfirme\":\"Addictocode@91\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/auth/signup",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error password confirme",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\":\"support@addictocode.fr\",\r\n    \"password\": \"Addictocode@91\",\r\n    \"passwordConfirme\":\"Addictocode@x91\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/auth/signup",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-csrf-header, Origin, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "189"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bd-WpqzxrJoNzGIa/kwaSHFzeZzDlo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Jan 2025 20:25:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": {\n        \"origin\": \"Validations.passwordConfirmer\",\n        \"code\": \"AUTH_ERROR\",\n        \"details\": {\n            \"status\": 401,\n            \"statusText\": \"Not Authorized\",\n            \"message\": \"💥Les mots de passe ne sont pas identiques.💥\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Errors validations",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\":\"supportaddictocode.fr\",\r\n    \"password\": \"Addictocode91\",\r\n    \"passwordConfirme\":\"Addictocode91\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/auth/signup",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-csrf-header, Origin, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "284"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11c-+na58uUgUPztxi+wYQIwCsHUx8w\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Jan 2025 20:27:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": {\n        \"origin\": \"Validations.hasErrorsInValidations\",\n        \"code\": \"AUTH_ERROR\",\n        \"details\": {\n            \"Email\": \"L'adresse email est invalide.\",\n            \"Password\": \"Le mot de passe est incorrect, il doit contenir au moins 8 caractères dont un chiffre,une minuscule, une majuscule et un caratère spécial.\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Errors validations 2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\":\"support@addictocode.fr\",\r\n    \"password\": \"Addictocode91\",\r\n    \"passwordConfirme\":\"Addictocode91\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/auth/signup",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-csrf-header, Origin, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "274"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"112-130booVmoVkrpg6m/tOjSW+/J9U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Jan 2025 20:28:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": {\n        \"origin\": \"Validations.hasErrorsInValidations\",\n        \"code\": \"AUTH_ERROR\",\n        \"details\": {\n            \"Email\": \"paramètre validé.\",\n            \"Password\": \"Le mot de passe est incorrect, il doit contenir au moins 8 caractères dont un chiffre,une minuscule, une majuscule et un caratère spécial.\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Errors validations 3",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\":\"supportaddictocode.fr\",\r\n    \"password\": \"Addictocode@91\",\r\n    \"passwordConfirme\":\"Addictocode@91\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/auth/signup",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-csrf-header, Origin, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "162"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a2-eyI1eAyFknYRW30sjIKxorRzLj0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Jan 2025 20:28:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": {\n        \"origin\": \"Validations.hasErrorsInValidations\",\n        \"code\": \"AUTH_ERROR\",\n        \"details\": {\n            \"Email\": \"L'adresse email est invalide.\",\n            \"Password\": \"paramètre validé.\"\n        }\n    }\n}"
+						},
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\":\"jokarts@addictocode.fr\",\r\n    \"password\": \"Addictocode@91\",\r\n    \"passwordConfirme\":\"Addictocode@91\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/auth/signup",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-csrf-header, Origin, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5a-6YXSC7KO3Xy8gYj9y1H3Im8W+gM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Jan 2025 21:58:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 201,\n    \"statusText\": \"Created\",\n    \"message\": \"✅Bienvenue. Vous êtes enregistré.✅\"\n}"
+						},
+						{
+							"name": "SUCCESS Re active user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\":\"jokarts@addictocode.fr\",\r\n    \"password\": \"Addictocode@91\",\r\n    \"passwordConfirme\":\"Addictocode@91\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/auth/signup",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-csrf-header, Origin, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5b-Sa/65V1v+Hcg3+mRBhLz93JqStQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 27 Jan 2025 00:50:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 204,\n    \"statusText\": \"No Content\",\n    \"message\": \"✅Votre compte a été réactivé.✅\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login (SET TOKEN)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-addictocode-apikey",
+								"value": "{{x-addictocode-apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\":\"support@addictocode.fr\",\r\n    \"password\": \"Addictocode@91\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/auth/login",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login (SET TOKEN)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-addictocode-apikey",
+										"value": "{{x-addictocode-apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\":\"support@addictocode.fr\",\r\n    \"password\": \"Addictocode@91\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/auth/login",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-csrf-header, Origin, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "addictocode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMzLCJlbWFpbCI6InN1cHBvcnRAYWRkaWN0b2NvZGUuZnIiLCJyb2xlIjoiVXNlciIsImlhdCI6MTczODUyODQ2NCwiZXhwIjoxNzM4NTMyMDY0fQ.y82CMZy9HLVHW5czOpZIMN9RBzXWN68sirX3rvjNhyo; Max-Age=3600; Path=/; Expires=Sun, 02 Feb 2025 21:34:24 GMT; HttpOnly; Secure"
+								},
+								{
+									"key": "x-addictocode-apikey",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMzLCJlbWFpbCI6InN1cHBvcnRAYWRkaWN0b2NvZGUuZnIiLCJyb2xlIjoiVXNlciIsImlhdCI6MTczODUyODQ2NCwiZXhwIjoxNzM4NTMyMDY0fQ.y82CMZy9HLVHW5czOpZIMN9RBzXWN68sirX3rvjNhyo"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48-gTB+Mu8ZbjyW5x8TStvm0XxzaXI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 02 Feb 2025 20:34:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"statusText\": \"OK\",\n    \"message\": \"✅Vous êtes connecté.✅\"\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-addictocode-apikey",
+								"value": "{{x-addictocode-apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\":\"support@addictocode.fr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/auth/logout",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-addictocode-apikey",
+										"value": "{{x-addictocode-apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\":\"support@addictocode.fr\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/api/auth/logout",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-csrf-header, Origin, Content-Type, Accept"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "addictocode=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; Secure; SameSite=Strict"
+								},
+								{
+									"key": "x-addictocode-apikey",
+									"value": "TOKEN EXPIRED"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-wCDDDYft32WNjQXNQ++T9HzKExA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 02 Feb 2025 20:49:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 204,\n    \"statusText\": \"No Content\",\n    \"message\": \"✅Vous êtes déconnecté.✅\"\n}"
+						}
+					]
+				},
+				{
+					"name": "routes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-addictocode-apikey",
+								"value": "{{x-addictocode-apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\":\"support@addictocode.fr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/auth/routes",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logs",
+			"item": [
+				{
+					"name": "select all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-addictocode-apikey",
+								"value": "{{x-addictocode-apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api-url}}/api/logs/all",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"logs",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "routes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-addictocode-apikey",
+								"value": "{{x-addictocode-apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\":\"support@addictocode.fr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/logs/routes",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"logs",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Template",
+			"item": [
+				{
+					"name": "select all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-addictocode-apikey",
+								"value": "{{x-addictocode-apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api-url}}/api/logs/all",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"logs",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "routes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-addictocode-apikey",
+								"value": "{{x-addictocode-apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\":\"support@addictocode.fr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/api/logs/routes",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"api",
+								"logs",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Récupérer le token dans les cookies\r",
+					"let cookies = pm.cookies.get('addictocode');\r",
+					"if (cookies) {\r",
+					"    pm.environment.set('addictocode', cookies); \r",
+					"}\r",
+					"// else{\r",
+					"//     pm.environment.set('addictocode', 'TOKEN EXPIRED');\r",
+					"// }\r",
+					"\r",
+					"// Récupérer le token dans les headers\r",
+					"let apiKey = pm.response.headers.get('x-addictocode-apikey');\r",
+					"console.log('apiKey',apiKey);\r",
+					"if (apiKey) {\r",
+					"    pm.environment.set('x-addictocode-apikey', apiKey); // Stocker la clé API dans une variable d'environnement\r",
+					"}\r",
+					"// else{\r",
+					"//     pm.environment.set('x-addictocode-apikey', 'TOKEN EXPIRED');\r",
+					"// }\r",
+					"\r",
+					"// Afficher une confirmation dans la console\r",
+					"console.log('Token enregistré c :', cookies);\r",
+					"console.log('Token enregistré a :', apiKey);"
+				]
+			}
+		}
+	]
+}
